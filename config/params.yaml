@@ -1,0 +1,77 @@
+# FinTimeSeries-Pipeline runtime configuration
+
+project:
+   # Portfolio-facing project metadata
+   name: FinTimeSeries-Pipeline
+   seed: 42
+
+experiment:
+   # Reproducible run tracking metadata and artifacts.
+   enabled: true
+   output_dir: runs
+
+data:
+   # Data providers used by the pipeline
+   sources: [yfinance, alpaca]
+   symbol: AAPL
+   date_range:
+      start: "2020-01-01"
+      end: "2024-12-31"
+   cache_enabled: true
+   cache_dir: data/cache
+
+cleaning:
+   # Data cleaning and diagnostics settings
+   missing_method: forward_fill
+   outlier_threshold: 3.0
+   returns_method: log_return
+   stationarity_test: adf
+   significance_level: 0.05
+
+model:
+   # Shared model settings
+   arima_order: [1, 1, 1]
+   lstm_window: 20
+
+models:
+   arima:
+      order: [1, 1, 1]
+      auto_select: true
+      selection_criterion: aic
+   garch:
+      order: [1, 1]
+      variant: GARCH
+      distribution: normal
+      backtest_window_mode: rolling
+      lookback: 252
+   lstm:
+      hidden_units: 32
+      epochs: 25
+      seq_length: 20
+      backend: auto
+
+inference:
+   confidence_level: 0.95
+   alpha: 0.05
+   n_bootstraps: 1000
+   bootstrap_method: percentile
+
+evaluation:
+   walkforward:
+      initial_train_size: 120
+      horizon: 10
+      step_size: 10
+      max_windows: 20
+
+visualization:
+   theme: plotly_white
+   save_figures: true
+   dashboard_port: 8501
+
+database:
+   path: data/finance.db
+   backup_enabled: true
+   backup_dir: data/backups
+
+storage:
+   output_dir: data
