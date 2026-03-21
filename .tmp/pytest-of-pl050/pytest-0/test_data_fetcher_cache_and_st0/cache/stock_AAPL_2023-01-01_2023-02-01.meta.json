@@ -1,0 +1,7 @@
+{
+  "symbol": "AAPL",
+  "asset_type": "stock",
+  "fetch_time": "2026-03-21T12:41:01.985473+00:00",
+  "provider": "yfinance",
+  "version": "v1"
+}

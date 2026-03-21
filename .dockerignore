@@ -1,0 +1,21 @@
+# Python cache and build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+
+# VCS and IDE
+.git/
+.history/
+.vscode/
+
+# Local data and environment files
+data/
+.env
+.venv/
+venv/
+
+# Notebook checkpoints
+.ipynb_checkpoints/

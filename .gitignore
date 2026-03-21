@@ -1,0 +1,26 @@
+# Editor and local history
+.history/
+.vscode/
+.idea/
+
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local temp and generated working dirs
+.tmp/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Runtime data outputs (optional to version; keep ignored by default)
+data/cache/
+runs/
