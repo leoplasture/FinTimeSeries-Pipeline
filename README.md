@@ -166,5 +166,5 @@ MIT License.
 
 ## Contact
 
-- GitHub: https://github.com/your-username
-- Email: your.email@example.com
+- GitHub: https://github.com/leoplasture
+- Email: pl05041011@outlook.com
